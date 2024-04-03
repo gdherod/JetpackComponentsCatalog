@@ -44,9 +44,13 @@ fun MyConfirmationDialog(show: Boolean, onDismiss: () -> Unit) {
                 var status by remember {
                     mutableStateOf("")
                 }
-                MyRadioButtonList(status, {status = it} )
+                MyRadioButtonList(status) { status = it }
                 Divider(Modifier.fillMaxWidth(), color = Color.LightGray)
-                Row(Modifier.align(Alignment.End).padding(8.dp)) {
+                Row(
+                    Modifier
+                        .align(Alignment.End)
+                        .padding(8.dp)
+                ) {
                     TextButton(onClick = {}) {
                         Text(text = "CANCEL")
                     }
@@ -139,9 +143,6 @@ fun AccountItem(email: String, @DrawableRes drawable: Int) {
 @Composable
 fun MyTitleDialog(text: String, modifier: Modifier = Modifier.padding(bottom = 12.dp)) {
     Text(
-        text = text,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 20.sp,
-        modifier = modifier
+        text = text, fontWeight = FontWeight.SemiBold, fontSize = 20.sp, modifier = modifier
     )
 }
