@@ -82,7 +82,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
 
-                    SimpleRecyclerView()
+                    SuperHeroView()
 
                     /*val myOptions = getOptions(listOf("Gary", "Ejemplo", "Pikachu"))*/
 
