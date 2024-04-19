@@ -1,11 +1,13 @@
 
 v
-Fapp/src/main/java/com/example/jetpackcomponentscatalog/MainActivity.kt,1/4/1465510e5bb99901eb94aeabcd19862659abaa6e
-D
-app/build.gradle.kts,d/2/d2a4383452aad84a18429a5844d31330a012a9e6
+Fapp/src/main/java/com/example/jetpackcomponentscatalog/RecyclerView.kt,6/2/62f13ff301974ee6378ba2da760820a31d8c4e6f
 v
-Fapp/src/main/java/com/example/jetpackcomponentscatalog/ui/CheckInfo.kt,8/3/83f15d99e1400bd920266dda4bf327b67aa41a2a
-p
-@app/src/main/java/com/example/jetpackcomponentscatalog/Slider.kt,f/b/fb5d1bac01af69ce5c75a8ffe07b22b0e94b0555
-q
-Aapp/src/main/java/com/example/jetpackcomponentscatalog/Dialogs.kt,d/c/dc3f6e7a19e341dcf9070434c976713200dbe0ac
+Fapp/src/main/java/com/example/jetpackcomponentscatalog/MainActivity.kt,1/4/1465510e5bb99901eb94aeabcd19862659abaa6e
+S
+#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
+Å
+Q.idea/sonarlint/securityhotspotstore/6/2/62f13ff301974ee6378ba2da760820a31d8c4e6f,7/5/75b646c4c2e178a203f008e07b935c799eaf7193
+w
+G.idea/sonarlint/issuestore/6/2/62f13ff301974ee6378ba2da760820a31d8c4e6f,b/6/b640973b8096e7606e07b2435852d3e6fd3f5dc7
