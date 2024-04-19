@@ -8,7 +8,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -75,36 +74,38 @@ class MainActivity : ComponentActivity() {
         setContent {
             JetpackComponentsCatalogTheme {
                 // A surface container using the 'background' color from the theme
-                var selected by remember {
+                /*var selected by remember {
                     mutableStateOf("Gary")
-                }
+                }*/
 
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
 
+                    SimpleRecyclerView()
+
                     /*val myOptions = getOptions(listOf("Gary", "Ejemplo", "Pikachu"))*/
 
                     /*Column {*/
-                    var show by remember {
+                    /*var show by remember {
                         mutableStateOf(false)
                     }
                     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                         Button(onClick = { show = true }) {
                             Text(text = "Mostrar diálogo")
                         }
-                        MyConfirmationDialog(show = show, onDismiss = { show = false })
-                        /*MyAlertDialog(
-                            show = show,
-                            onDismiss = { show = false },
-                            onConfirm = { Log.i("Gary", "Click") })*/
-                    }
-                    /*MyRadioButtonList(selected) { selected = it }*//*MyTriStatusCheckBox()
+                        MyConfirmationDialog(show = show, onDismiss = { show = false })*/
+                    /*MyAlertDialog(
+                        show = show,
+                        onDismiss = { show = false },
+                        onConfirm = { Log.i("Gary", "Click") })*/
+                }
+                /*MyRadioButtonList(selected) { selected = it }*//*MyTriStatusCheckBox()
                         myOptions.forEach {
                             MyCheckBoxWithTextCompleted(it)
                         }
-                    }*/
-                }
+                    }
+                }*/
             }
         }
     }
