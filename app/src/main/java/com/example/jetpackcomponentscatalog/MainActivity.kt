@@ -82,7 +82,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
 
-                    SuperHeroView()
+                    SuperHeroGridView()
 
                     /*val myOptions = getOptions(listOf("Gary", "Ejemplo", "Pikachu"))*/
 
