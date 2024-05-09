@@ -2,7 +2,9 @@ package com.example.jetpackcomponentscatalog
 
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -52,6 +54,33 @@ fun SuperHeroView() {
         items(getSuperHeroes()) { superHero ->
             ItemHero(superHero = superHero) {
                 Toast.makeText(context, it.superHeroName, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun SuperHeroStickyView() {
+    val context = LocalContext.current
+    val superHero = getSuperHeroes().groupBy { it.publisher }
+
+    LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        superHero.forEach { (publisher, mySuperHero) ->
+            stickyHeader {
+                Text(
+                    text = publisher,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Color.Green),
+                    fontSize = 16.sp,
+                    color = Color.White
+                )
+            }
+            items(mySuperHero) { superHero ->
+                ItemHero(superHero = superHero) {
+                    Toast.makeText(context, it.superHeroName, Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
@@ -112,6 +141,7 @@ fun SuperHeroGridView() {
 fun ItemHero(superHero: SuperHero, onItemSelected: (SuperHero) -> Unit) {
     Card(border = BorderStroke(2.dp, Color.Red),
         modifier = Modifier
+            .fillMaxWidth()
             .clickable { onItemSelected(superHero) }) {
         Column {
             Image(
