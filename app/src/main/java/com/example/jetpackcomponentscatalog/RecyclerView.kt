@@ -9,15 +9,19 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -54,6 +58,40 @@ fun SuperHeroView() {
 }
 
 @Composable
+fun SuperHeroWithSpecialControlsView() {
+    val context = LocalContext.current
+    val rvState = rememberLazyListState()
+    Column {
+        LazyColumn(
+            state = rvState, verticalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = Modifier.weight(1f)
+        ) {
+            items(getSuperHeroes()) { superHero ->
+                ItemHero(superHero = superHero) {
+                    Toast.makeText(context, it.superHeroName, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+        val showButton by remember {
+            derivedStateOf {
+                rvState.firstVisibleItemIndex > 0
+            }
+        }
+
+        if (showButton) {
+            Button(
+                onClick = { /*TODO*/ },
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(16.dp)
+            ) {
+                Text(text = "I'm a button")
+            }
+        }
+    }
+}
+
+@Composable
 fun SuperHeroGridView() {
     val context = LocalContext.current
     LazyVerticalGrid(
@@ -72,10 +110,8 @@ fun SuperHeroGridView() {
 
 @Composable
 fun ItemHero(superHero: SuperHero, onItemSelected: (SuperHero) -> Unit) {
-    Card(
-        border = BorderStroke(2.dp, Color.Red),
+    Card(border = BorderStroke(2.dp, Color.Red),
         modifier = Modifier
-            .width(200.dp)
             .clickable { onItemSelected(superHero) }) {
         Column {
             Image(
