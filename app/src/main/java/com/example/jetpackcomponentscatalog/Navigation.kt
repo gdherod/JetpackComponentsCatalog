@@ -49,6 +49,21 @@ fun Screen3(navController: NavHostController) {
             .fillMaxSize()
             .background(Color.Magenta)
     ) {
-        Text(text = "Screen 3", modifier = Modifier.align(Alignment.Center))
+        Text(
+            text = "Screen 3",
+            modifier = Modifier
+                .align(Alignment.Center)
+                .clickable { navController.navigate("screen4/4") })
+    }
+}
+
+@Composable
+fun Screen4(navController: NavHostController, name: Int) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Yellow)
+    ) {
+        Text(text = name.toString(), modifier = Modifier.align(Alignment.Center))
     }
 }
