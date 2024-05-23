@@ -65,6 +65,9 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.jetpackcomponentscatalog.ui.CheckInfo
 import com.example.jetpackcomponentscatalog.ui.theme.JetpackComponentsCatalogTheme
 
@@ -81,8 +84,15 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
+                    val navigationController = rememberNavController()
+                    NavHost(navController = navigationController, startDestination = "screen1") {
+                        composable("screen1") { Screen1(navigationController) }
+                        composable("screen2") { Screen2(navigationController) }
+                        composable("screen3") { Screen3(navigationController) }
+                    }
 
-                    ScaffoldExample()
+
+                    /*ScaffoldExample()*/
 
                     /*val myOptions = getOptions(listOf("Gary", "Ejemplo", "Pikachu"))*/
 
