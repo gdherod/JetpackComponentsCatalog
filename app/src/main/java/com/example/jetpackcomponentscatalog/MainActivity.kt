@@ -87,7 +87,11 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
-                    val navigationController = rememberNavController()
+                    CrossfadeExampleAnimation()
+                    /*VisibilityAnimation()*/
+                    /*SizeAnimation()*/
+                    /*ColorAnimationSimple()*/
+                    /*val navigationController = rememberNavController()
                     NavHost(
                         navController = navigationController,
                         startDestination = Routes.Screen1.route
@@ -114,7 +118,7 @@ class MainActivity : ComponentActivity() {
                                 name = backStackEntry.arguments?.getString("name")
                             )
                         }
-                    }
+                    }*/
 
 
                     /*ScaffoldExample()*/
